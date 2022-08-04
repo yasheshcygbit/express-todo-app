@@ -4,12 +4,6 @@ import { dbUrl } from "./index";
 
 mongoose.connect(
 	dbUrl,
-	{
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-		// useCreateIndex: true,
-		// useFindAndModify: false
-	},
 	function (err: any) {
 		if (err) {
 			console.log("error", err);

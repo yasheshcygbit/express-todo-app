@@ -1,8 +1,8 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
-import corsFunction from './src/middlewares/cors';
-import routes from './src/routes';
-import './src/config/db';
+import corsFunction from './middlewares/cors';
+import routes from './routes';
+import './config/db';
 
 dotenv.config();
 
@@ -23,3 +23,5 @@ app.use((req: Request, res: Response) => {
 app.listen(port, () => {
   console.log(`⚡️[server]: Server is running at https://localhost:${port}`);
 });
+// module.exports = app; // for testing
+export default app;

@@ -5,6 +5,21 @@ import { generateJWTtoken } from '../middlewares/authentication';
 import customResponse from '../utils/customResponse';
 
 export default {
+  findUserByEmail: async (email: string): Promise<boolean> => {
+    // first check if user is already registered
+    try {
+      const userFind = await User.findOne({ email });
+      console.log('userFind', userFind);
+      if (userFind) {
+        // send as not created
+        return true;
+      } else {
+        return false;
+      }
+    } catch (error) {
+      return false;
+    }
+  },
   register: async (email: string, password: string): Promise<ApiResponse> => {
     // first check if user is already registered
     try {
